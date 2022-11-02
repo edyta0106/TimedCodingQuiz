@@ -4,10 +4,12 @@
     box-sizing: border-box;
 };
 
+/* Added top margin to section element in html */
 section {
     margin-top: 15px;
 }
 
+/* Added class card with formatting to section in html */
 .card {
     display: flex;
     position: relative;
@@ -22,6 +24,7 @@ section {
     width: 40vw;
 }
 
+/* Added formatting to h2 title in html */
 h2 {
     display: flex;
     position: relative;
