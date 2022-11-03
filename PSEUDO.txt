@@ -2,20 +2,26 @@ TIMED CODING QUIZ!!!
 
 Create a timed quiz with high scores using JS
 
-1. create a 'start quiz' button in html and css
-    -make button work by using event handler
-
-2. create a variable 'questions' by creating an array of objects
+1. create a variable 'questions' by creating an array of objects
     -create array of 5 objects
     -each object includes a title, and array of choices, and an answer
 
+2. create a 'start quiz' button in html and css
+    -make button work by using event handler
+    -create an event listener for 'start quiz' button that triggers questions to be displayed
+
 3. how do I present the first question on the page?
-    
+    -create a function that displays questions
 
 4. create a button for each multiple choice answer
-5. create a pseudo alert method with 'correct' or 'incorrect' statement after each answer
+    -creat a funtction to display the multiple choices for each question
 
-6. create event listener after each answer is submitted
+5. create event listener after each answer is submitted
+
+5. create a pseudo alert method with 'correct' or 'incorrect' statement after each answer
+    -create an alert using an if statement whether the answer is correct or wrong
+
+
 
 9. create confirm method when game is over
 10. create local storage with saved answers
