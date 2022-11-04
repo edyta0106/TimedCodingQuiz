@@ -114,8 +114,9 @@ function setTime() {
     // Create a timer interval function that counts down from 90 seconds until it reaches zero in 1 second intervals
     var timerInterval = setInterval(function() {
         timeLeft--;
+        
         // Create text that displays on the web page with seconds left
-        timerEl.textContent = timeLeft + " seconds left"; 
+        timerEl.textContent = "Time Remaining: " + timeLeft + " seconds left"; 
         
         // Create if statement so that a message is displayed once timer reaches zero
         if (timeLeft === 0) {
@@ -127,7 +128,7 @@ function setTime() {
     }, 1000); 
 };
 
-
+// Create a function that will display a message once timer reaches zero seconds
 function sendMessage() {
     timerEl.textContent = "No more time left. End of Quiz";
 };
@@ -138,8 +139,10 @@ btnEl.addEventListener("click", function() {
     // Create a start-game id varibale. Then use the classList property which allows you to add the hidden feature in CSS.
     var startGameContainer = document.querySelector("#start-game");
     startGameContainer.classList.add("hidden");
+    
     // Call the function from above to display the questions.
     displayQuestions();
+    
     // Call setTime function locally inside the event listener so that timer only starts when start button is pressed/clicked
     setTime();
 });
