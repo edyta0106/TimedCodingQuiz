@@ -1,5 +1,5 @@
 // Variable Declarations
-// Create variable objects. There should be 5 objects and in each object there should be a quiz question, an array of multiple choices, and a correct answer
+// Create variable objects. There should be 5 objects and in each object there should be a quiz question, an array of multiple-choice answers, and a correct answer
 var questions = [
     {
         title: "Question 1: What's my name?",
@@ -34,13 +34,9 @@ var questionContainer = document.querySelector(".questionContainer");
 var btnEl = document.querySelector("#start-btn");
 var ulText = document.querySelector("ul");
 
-// Create varibale to keep score of correct answers
-var correctAnswers = 0;
-
 // Set a current index variable to zero because we will start with the first object and within that object we will start the first question, the first array of choices and the first answer.
 var currentIndex = 0;
 
-// how do I present the first question on the page?
 // Functions
 // Create a function to display a question
 function displayQuestions() {   
@@ -68,6 +64,8 @@ function displayAnswers(currentQ) {
         button.addEventListener("click", selectedAnswer);
     });
 };
+// Create varibale to keep score of correct answers
+var correctAnswers = 0; 
 
 // Create a function to select answers which we call it in the display answer function in the button event listener
 function selectedAnswer(event) {
@@ -107,34 +105,41 @@ function clearState() {
     questionContainer.appendChild(ul);
 };
 
+// Create timer class element and a 90 second countdown
 var timerEl = document.querySelector(".timer");
-// var mainEl = document.getElementById("main");
 var timeLeft = 90;
 
+// Create a timer function that starts when the start button is pressed
 function setTime() {
+    // Create a timer interval function that counts down from 90 seconds until it reaches zero in 1 second intervals
     var timerInterval = setInterval(function() {
         timeLeft--;
+        // Create text that displays on the web page with seconds left
         timerEl.textContent = timeLeft + " seconds left"; 
-
+        
+        // Create if statement so that a message is displayed once timer reaches zero
         if (timeLeft === 0) {
             clearInterval(timerInterval);
+            // Call sendMessage function
             sendMessage();
         };
+       // Use 1000 for seconds 
     }, 1000); 
 };
+
 
 function sendMessage() {
     timerEl.textContent = "No more time left. End of Quiz";
 };
-setTime()
-
 
 // Event Listeners
+// Create an event listener to start quiz by pressing the start button.
 btnEl.addEventListener("click", function() {
     // Create a start-game id varibale. Then use the classList property which allows you to add the hidden feature in CSS.
     var startGameContainer = document.querySelector("#start-game");
     startGameContainer.classList.add("hidden");
-    // how can I present the first question in the array to the user?
-    // Create a function that will display the question. Then create an event listener to start quiz by pressing the start button. Call the function frpm above to display the questions.
+    // Call the function from above to display the questions.
     displayQuestions();
+    // Call setTime function locally inside the event listener so that timer only starts when start button is pressed/clicked
+    setTime();
 });

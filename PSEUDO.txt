@@ -13,17 +13,24 @@ Create a timed quiz with high scores using JS
 3. how do I present the first question on the page?
     -create a function that displays questions
 
-4. create a button for each multiple choice answer
-    -creat a funtction to display the multiple choices for each question
+4. how do I present multiple-choice answers?
+    -creat a function to display the multiple choices for each question
+    -create an event listener so that user can click on each multiple-choice button 
 
-5. create event listener after each answer is submitted
+5. create an alert with 'correct' or 'incorrect' statement after each answer
+    -create an alert using an if statement whether the answer is correct or wrong inside the function that displays multiple-choice answers
 
-5. create a pseudo alert method with 'correct' or 'incorrect' statement after each answer
-    -create an alert using an if statement whether the answer is correct or wrong
+6. how do I display the next question?
+    -create a function that will cycle through the questions when an answer is chosen from the multiple-choices listed
 
 
+7. create an if statement in the function that displays next question to alert user when the quiz has ended once all questions have been answered
 
-9. create confirm method when game is over
-10. create local storage with saved answers
-6. create a timer function once start button is clicked
-8. create timer interval to subtract from the timer if answer is incorrect
+8. create a timer function that starts quiz when start button is clicked
+
+9. create function to display a message if the user runs out of time
+
+* Did not finish *
+10. create method that subtracts time from the clock when an incorrect answer i submitted
+11. create local storage where user inputs their initials and the number of correct answers is displayed
+
