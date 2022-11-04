@@ -23,7 +23,7 @@ var questions = [
         answer: "Molcajetes"
     },
     {
-        title: "Question 5: What's my favorite code that we have learned so far?",
+        title: "Question 5: What's my favorite code?",
         choices: ["HTML", "CSS", "JavaScript"],
         answer: "JavaScript"
     }
@@ -34,11 +34,8 @@ var questionContainer = document.querySelector(".questionContainer");
 var btnEl = document.querySelector("#start-btn");
 var ulText = document.querySelector("ul");
 
-
-// Create varibales to keep score
+// Create varibale to keep score of correct answers
 var correctAnswers = 0;
-// console.log("currentSCore: " + correctAnswers)
-
 
 // Set a current index variable to zero because we will start with the first object and within that object we will start the first question, the first array of choices and the first answer.
 var currentIndex = 0;
@@ -46,7 +43,9 @@ var currentIndex = 0;
 // how do I present the first question on the page?
 // Functions
 // Create a function to display a question
-function displayQuestions() {       
+function displayQuestions() {   
+
+        clearState();  
         // Create an li element that will display choices for the each question
         var liEl = document.createElement("li");
         // Set innerText property to the li element in html so that each question displays the array choices on the webpage
@@ -60,8 +59,6 @@ function displayQuestions() {
 
 // Create a funtion to display answer choices for current question. We call the function in our displayQuestions function
 function displayAnswers(currentQ) {
-    // Call the clearState function in here because every time you click an answer/choice, it will then clear those buttons so that it can display the next set of buttons with answers/choices
-    clearState();
     // create a forEach method so that current answers for each question are displayed
     currentQ.choices.forEach((currentA) => {
         // Create a button element so that it interacts with the selectedAnswer function
@@ -81,12 +78,12 @@ function selectedAnswer(event) {
     if(selectedButton == correctAnswer) {
         alert("Correct");
         correctAnswers ++
-        console.log("currentScore:" + correctAnswers)
+        // console.log("currentScore:" + correctAnswers)
     } else {
         alert("Wrong")
     };
     //We are adding +1 every time an answer is selected so that it goes to the next question
-    currentIndex ++;    
+    currentIndex ++; 
     // Call nextQuestion function from below so that it cycles through the set of questions
     nextQuestion();
 };
@@ -101,17 +98,42 @@ function nextQuestion() {
     };
 };
 
-// Create a funtion to clear the answers/choices on the buttons for each mutliple choice answer
+// Create a funtion to clear the previous quesion when an answer is submitted
 function clearState() {
-    var buttonChoices = document.querySelector("button");
-    buttonChoices.textContent = "";
+    // Use remove method in the ul element which includes my objects
+    ulText.remove();
+    var ul = document.createElement('ul');
+    ulText = ul;
+    questionContainer.appendChild(ul);
 };
+
+var timerEl = document.querySelector(".timer");
+// var mainEl = document.getElementById("main");
+var timeLeft = 90;
+
+function setTime() {
+    var timerInterval = setInterval(function() {
+        timeLeft--;
+        timerEl.textContent = timeLeft + " seconds left"; 
+
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            sendMessage();
+        };
+    }, 1000); 
+};
+
+function sendMessage() {
+    timerEl.textContent = "No more time left. End of Quiz";
+};
+setTime()
+
 
 // Event Listeners
 btnEl.addEventListener("click", function() {
     // Create a start-game id varibale. Then use the classList property which allows you to add the hidden feature in CSS.
-    var startGameContainer = document.querySelector("#start-game")
-    startGameContainer.classList.add("hidden")
+    var startGameContainer = document.querySelector("#start-game");
+    startGameContainer.classList.add("hidden");
     // how can I present the first question in the array to the user?
     // Create a function that will display the question. Then create an event listener to start quiz by pressing the start button. Call the function frpm above to display the questions.
     displayQuestions();
