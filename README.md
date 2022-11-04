@@ -21,9 +21,9 @@ Create a timed coding quiz with multiple-choice questions.
 
 The following link deploys the application:
 
+https://edyta0106.github.io/TimedCodingQuiz/
 
-
-The following is a screenshot of the deployed application with the generated password:
+The following are screenshots of the deployed application:
 
 ![Alt text](./Assets/Screen%20Shot%202022-11-03%20at%209.46.10%20PM.png)
 ![Alt text](./Assets/Screen%20Shot%202022-11-03%20at%209.46.55%20PM.png)
