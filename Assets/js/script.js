@@ -163,18 +163,14 @@ var saveButton = document.querySelector("#save-initials");
 
 saveButton.addEventListener("click", function () {
   var savedInitials = document.querySelector("#initials").value;
-  var initials = { initials: savedInitials, score: count };
+  var initials = { initials: savedInitials, score: correctAnswers };
   localStorage.setItem("initials", JSON.stringify(initials));
   displayScore();
 });
 
 // create a function to display correct answers score
-
-var count = localStorage.getItem("counter");
-
 function displayScore() {
   var counter = document.querySelector("#counter");
-  counter.textContent = "Correct Answers: " + count;
-  localStorage.setItem(initials, count);
+  counter.textContent = "Correct Answers: " + correctAnswers;
   correctAnswers++;
 }
